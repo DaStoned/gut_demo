@@ -26,8 +26,12 @@ PetDoor::PetDoor(ITagReader& tagReader, IDisplay& display)
   _display.show("Pet Door v1.0");
 }
 
-void PetDoor::addPet(string petTag) {
-  _myPets.insert(petTag);
+bool PetDoor::addPet(string petTag) {
+  if (0 == _myPets.count(petTag)) {
+    _myPets.insert(petTag);
+    return true;
+  }
+  return false;
 }
 
 void PetDoor::onTag(string tag) {

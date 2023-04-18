@@ -19,7 +19,7 @@ public:
 class PetDoor : public ITagReader::ISubscriber {
 public:
   PetDoor(ITagReader& tagReader, IDisplay& display);
-  void addPet(std::string myPet);
+  bool addPet(std::string myPet);
   // From ItagReader::ISubscriber
   virtual void onTag(std::string tag) override;
 private:

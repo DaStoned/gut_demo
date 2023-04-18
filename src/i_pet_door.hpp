@@ -12,7 +12,3 @@ struct ITagReader {
 struct IDisplay {
   virtual void show(std::string text) = 0;
 };
-
-struct IPetDoor {
-  virtual void addPet(std::string petTag) = 0;
-};

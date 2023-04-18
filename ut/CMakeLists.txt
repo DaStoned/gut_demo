@@ -17,14 +17,14 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 include_directories(
-  "../main"
+  "../src"
   "mocks"
 )
 
 # Add the unit test executable and link against googletest and our code
 add_executable(gut
   gut_main.cpp
-  #tests/ut_ocpp_hub.cpp
-  #../main/ocpp_hub.cpp
+  ut_pet_door.cpp
+  ../src/pet_door.cpp
 )
 target_link_libraries(gut gtest_main gmock_main)
