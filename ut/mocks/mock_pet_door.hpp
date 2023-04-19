@@ -1,12 +1,17 @@
 #pragma once
 
-#include "i_pet_door.hpp"
+#include "i_pet_sec.hpp"
 #include "gmock/gmock.h"
 
 struct MockTagReader : public ITagReader {
   MOCK_METHOD(void, subscribe, (ISubscriber*), (override));
 };
 
-struct MockDisplay : public IDisplay {
-  MOCK_METHOD(void, show, (std::string), (override));
+struct MockDatabase : public IDatabase {
+  MOCK_METHOD(bool, isMyPet, (std::string), (override));
+};
+
+struct MockDoor : public IDoor {
+  MOCK_METHOD(void, open, (), (override));
+  MOCK_METHOD(void, close, (), (override));
 };

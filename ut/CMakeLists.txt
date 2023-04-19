@@ -1,8 +1,7 @@
 # Build unit test
-
 cmake_minimum_required(VERSION 3.12)
 set(CMAKE_CXX_STANDARD 20)
-project(gut)
+project(gut_sec)
 
 # Download and set up googletest at configure time
 cmake_policy(SET CMP0135 NEW) # Skip warning over DOWNLOAD_EXTRACT_TIMESTAMP
@@ -24,7 +23,8 @@ include_directories(
 # Add the unit test executable and link against googletest and our code
 add_executable(gut
   gut_main.cpp
-  ut_pet_door.cpp
-  ../src/pet_door.cpp
+  ut_tag_codec.cpp
+  ut_pet_sec.cpp
+  ../src/pet_sec.cpp
 )
-target_link_libraries(gut gtest_main gmock_main)
+target_link_libraries(gut_sec gtest_main gmock_main)

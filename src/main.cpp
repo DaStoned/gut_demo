@@ -1,18 +1,16 @@
-#include "pet_door.hpp"
+#include "pet_sec.hpp"
 #include <iostream>
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
   TagReader tagReader;
-  Display display;
-  PetDoor door(tagReader, display);
+  Database db;
+  Door door;
+  PetSec sec(tagReader, db, door);
 
-  door.addPet("PussyCat");
-  door.addPet("Doggy");
-
-  tagReader.touchTag("StrayCat");
-  tagReader.touchTag("Doggy");
-
+  if (argc >= 2) {
+    tagReader.simulateScan(argv[1]);
+  }
   return 0;
 }
