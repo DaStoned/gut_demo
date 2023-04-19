@@ -20,10 +20,16 @@ bool Database::isMyPet(std::string id) {
 
 void Door::open() {
   cout << "Open door" << endl;
+  _open = true;
 }
 
 void Door::close() {
   cout << "Close door" << endl;
+  _open = false;
+}
+
+bool Door::isOpen() const {
+  return _open;
 }
 
 pair<string, string> TagCodec::decode(string tag) {

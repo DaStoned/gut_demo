@@ -14,4 +14,5 @@ struct MockDatabase : public IDatabase {
 struct MockDoor : public IDoor {
   MOCK_METHOD(void, open, (), (override));
   MOCK_METHOD(void, close, (), (override));
+  MOCK_METHOD(bool, isOpen, (), (const, override));
 };

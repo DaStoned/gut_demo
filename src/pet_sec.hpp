@@ -21,10 +21,14 @@ class Door : public IDoor {
 public:
   virtual void open() override;
   virtual void close() override;
+  virtual bool isOpen() const override;
+private:
+  bool _open = false;
 };
 
 class TagCodec {
 public:
+  // Decode a tag "0123ABCD:Fluffy Bunny" to strings ("0123ABCD", "Fluffy Bunny")
   static std::pair<std::string, std::string> decode(std::string tag);
 };
 

@@ -24,6 +24,7 @@ include_directories(
 add_executable(gut_sec
   gut_main.cpp
   ut_tag_codec.cpp
+  ut_door.cpp
   ut_pet_sec.cpp
   ../src/pet_sec.cpp
 )
