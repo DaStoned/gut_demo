@@ -21,7 +21,7 @@ include_directories(
 )
 
 # Add the unit test executable and link against googletest and our code
-add_executable(gut
+add_executable(gut_sec
   gut_main.cpp
   ut_tag_codec.cpp
   ut_pet_sec.cpp

@@ -6,8 +6,10 @@
 using namespace testing;
 
 TEST(UtTagCodec, DecodeSuccessful) {
-  EXPECT_EQ("Foo", TagCodec::decode("Foo:Bar").first);
-  EXPECT_EQ("Bar", TagCodec::decode("Foo:Bar").second);
-  EXPECT_EQ("", TagCodec::decode(":Foobar").first);
-  EXPECT_EQ("Foobar", TagCodec::decode(":Foobar").second);
+  auto idNamePair = TagCodec::decode("Foo:Bar");
+  EXPECT_EQ("Foo", idNamePair.first);
+  EXPECT_EQ("Bar", idNamePair.second);
+  idNamePair = TagCodec::decode(":Foobar");
+  EXPECT_EQ("", idNamePair.first);
+  EXPECT_EQ("Foobar", idNamePair.second);
 }
