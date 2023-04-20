@@ -1,9 +1,6 @@
 #include "pet_sec.hpp"
 
 #include "gtest/gtest.h"
-#include "gmock/gmock.h"
-
-using namespace testing;
 
 TEST(UtTagCodec, DecodeSuccessful) {
   auto idNamePair = TagCodec::decode("Foo:Bar");
@@ -12,4 +9,10 @@ TEST(UtTagCodec, DecodeSuccessful) {
   idNamePair = TagCodec::decode(":Foobar");
   EXPECT_EQ("", idNamePair.first);
   EXPECT_EQ("Foobar", idNamePair.second);
+}
+
+TEST(UtTagCodec, DecodeFails) {
+  auto idNamePair = TagCodec::decode("Bar");
+  EXPECT_EQ("Bar", idNamePair.first);
+  EXPECT_EQ("", idNamePair.second);
 }

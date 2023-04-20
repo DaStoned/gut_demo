@@ -23,6 +23,7 @@ struct UtPetSec : public Test {
   void TearDown() override {
     delete sec;
   }
+
 };
 
 TEST_F(UtPetSec, CloseDoorToStrayAnimal) {
